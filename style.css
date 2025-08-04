@@ -1,0 +1,91 @@
+body {
+    font-family: 'Merriweather Sans', sans-serif;
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 30%, rgba(0, 212, 255, 1) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+img#logo {
+    width: 100px;
+    height: auto;
+}   
+
+.container {
+    max-width: 60%;
+
+    min-height: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 30%, rgba(0, 212, 255, 1) 100%);
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgb(44, 44, 44);
+}
+
+@media (max-width: 700px) {
+    div.container section#searchSection {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-bottom: 20px;
+        width: 100%;
+        height:120px;
+    }
+}
+@media (min-width: 701px) {
+    div.container section#searchSection {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+}
+
+    div.container section#searchSection div#checkbox {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    min-width: 30%;
+    max-width: 70%;
+}
+
+button {
+    padding: 10px;
+    width: 20%;
+    font-size: 16px;
+    background-color: rgb(0, 166, 255);
+    color: white;
+    border: none;
+    cursor: pointer;
+    min-width: 80px;
+}
+
+h1,
+h2,
+p,
+label {
+    color: white;
+}
+
+#responseData {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+/* Animations */
+@-webkit-keyframes fade-in{0%{opacity:0}100%{opacity:1}}@keyframes fade-in{0%{opacity:0}100%{opacity:1}}
+@-webkit-keyframes shadow-drop-center{0%{-webkit-box-shadow:0 0 0 0 transparent;box-shadow:0 0 0 0 transparent}100%{-webkit-box-shadow:0 0 20px 0 rgba(0,0,0,.35);box-shadow:0 0 20px 0 rgba(0,0,0,.35)}}@keyframes shadow-drop-center{0%{-webkit-box-shadow:0 0 0 0 transparent;box-shadow:0 0 0 0 transparent}100%{-webkit-box-shadow:0 0 20px 0 rgba(0,0,0,.35);box-shadow:0 0 20px 0 rgba(0,0,0,.35)}}
+.fade-in{-webkit-animation:fade-in 2s cubic-bezier(.39,.575,.565,1.000) both;animation:fade-in 2s cubic-bezier(.39,.575,.565,1.000) both}
+.shadow-drop-center{-webkit-animation:shadow-drop-center 1s cubic-bezier(.25,.46,.45,.94) infinite alternate both;animation:shadow-drop-center 1s cubic-bezier(.25,.46,.45,.94) infinite alternate both}
