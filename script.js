@@ -34,9 +34,14 @@ function showWeatherData(data){
     cityInfo.textContent = `${cityName}, ${countryName}`
     cityInfo.classList.add('fade-in')
 
+    const celciusLabel = document.getElementById('celciusLabel');
+    celciusLabel.textContent = 'Change unit of measure';
+    const unitOfMeasure = celciusCheckbox.checked ? ' (Celsius)' : ' (Fahrenheit)';
+    celciusLabel.textContent = celciusLabel.innerText + unitOfMeasure;
+
     const tempInfo = document.createElement('p')
     tempInfo.id = 'tempInfo'
-    tempInfo.textContent = `Temperature: ${Math.floor(temp-diffKelvin)}ºC`
+    tempInfo.textContent = document.getElementById('celciusCheckbox').checked ? `Temperature: ${Math.floor(temp-diffKelvin)}ºC` : `Temperature: ${Math.floor((temp - diffKelvin) * 9/5 + 32)}ºF`
     tempInfo.classList.add('fade-in')
 
     const humidityInfo = document.createElement('p')
@@ -63,20 +68,12 @@ const toggleTemperatureUnit = () => {
     const tempInfoParragraph = document.getElementById('tempInfo');
     const celciusCheckbox = document.getElementById('celciusCheckbox');
     const celciusLabel = document.getElementById('celciusLabel');
+    celciusLabel.textContent = 'Change unit of measure';
+
+    const unitOfMeasure = celciusCheckbox.checked ? ' (Celsius)' : ' (Fahrenheit)';
+    celciusLabel.textContent = celciusLabel.innerText + unitOfMeasure;
 
     if(tempInfoParragraph != null) {
-        if (celciusCheckbox.checked) {
-            tempInfoParragraph.textContent = `Temperature: ${Math.floor(temp - diffKelvin)}ºC`;
-            celciusLabel.textContent = 'Celsius';
-        } else {
-            tempInfoParragraph.textContent = `Temperature: ${Math.floor((temp - diffKelvin) * 9/5 + 32)}ºF`;
-            celciusLabel.textContent = 'Fahrenheit';
-        }
-    }
-    else{
-        celciusCheckbox.checked = true;
-        celciusLabel.textContent = 'Celsius';
-        alert('Please search for a city first to see the temperature');
-        return;
+            tempInfoParragraph.textContent = celciusCheckbox.checked ? `Temperature: ${Math.floor(temp-diffKelvin)}ºC` : `Temperature: ${Math.floor((temp - diffKelvin) * 9/5 + 32)}ºF`
     }
 }
